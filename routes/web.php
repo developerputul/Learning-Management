@@ -16,9 +16,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [UserController::class, 'Index'])->name('index');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,7 +37,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-//Admin Group Middleware
+//Admin Group Middleware///
 Route::middleware(['auth','roles:admin'])->group(function(){
 
 Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -45,23 +49,22 @@ Route::get('/admin/change/password', [AdminController::class, 'AdminChangePasswo
 Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 
 }); 
-//End Admin Group Middleware
+//End Admin Group Middleware//
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
-//Instructor Group Middleware
+
+//Instructor Group Middleware//
 Route::middleware(['auth','roles:instructor'])->group(function(){
+
 
 Route::get('/instructor/dashboard', [InstructorController::class, 'InstructorDashboard'])->name('instructor.dashboard');
 Route::get('/instructor/logout', [InstructorController::class, 'InstructorLogout'])->name('instructor.logout');
 Route::get('/instructor/profile', [InstructorController::class, 'InstructorProfile'])->name('instructor.profile');
 
 Route::post('/instructor/profile/store', [InstructorController::class, 'InstructorProfileStore'])->name('instructor.profile.store');
-
 Route::get('/instructor/change/password', [InstructorController::class, 'InstructorChangePassword'])->name('instructor.change.password');
-
 Route::post('/instructor/password/update', [InstructorController::class, 'InstructorPasswordUpdate'])->name('instructor.password.update');
 
-
-}); // End Instructor Group Middleware
+}); // End Instructor Group Middleware//
 
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
