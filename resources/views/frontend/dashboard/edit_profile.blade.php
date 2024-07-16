@@ -18,7 +18,7 @@
     <div class="setting-body">
         <h3 class="fs-17 font-weight-semi-bold pb-4">Edit Profile</h3>
         
-        <form method="post" class="row pt-40px" action="#" enctype="multipart/form-data">
+        <form method="post" class="row pt-40px" action="{{ route('user.profile.update') }}" enctype="multipart/form-data">
             @csrf
 
         <div class="media media-card align-items-center">
@@ -38,7 +38,7 @@
             <div class="input-box col-lg-6">
                 <label class="label-text">Name</label>
                 <div class="form-group">
-                    <input class="form-control form--control" type="name" name="name" value="{{ $profileData->name }}">
+                    <input class="form-control form--control" type="text" name="name" value="{{ $profileData->name }}">
                     <span class="la la-user input-icon"></span>
                 </div>
             </div><!-- end input-box -->
