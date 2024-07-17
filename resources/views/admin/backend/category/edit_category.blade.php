@@ -10,7 +10,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
                 </ol>
             </nav>
         </div>
@@ -21,14 +21,16 @@
 
 <div class="card">
     <div class="card-body p-4">
-        <h5 class="mb-4">Add Category</h5>
+        <h5 class="mb-4">Edit Category</h5>
 
-        <form id="myForm" action="{{ route('store.category') }}" method="post" class="row g-3" enctype="multipart/form-data">
+        <form id="myForm" action="{{ route('update.category') }}" method="post" class="row g-3" enctype="multipart/form-data">
             @csrf
+
+            <input type="hidden" name="id" value="{{ $category->id }}">
 
             <div class="form-group col-md-6">
                 <label for="input1" class="form-label">Category Name</label>
-                <input type="text" name="category_name" class="form-control" id="input1">
+                <input type="text" name="category_name" class="form-control" id="input1" value="{{ $category->category_name }}">
             </div>
 
             <div class="col-md-6">
@@ -40,7 +42,7 @@
             </div>
 
             <div class="col-md-6">
-                <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
+                <img id="showImage" src="{{ asset($category->image) }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
             </div>
             
             <div class="col-md-12">
@@ -53,43 +55,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function (){
-        $('#myForm').validate({
-            rules: {
-                category_name: {
-                    required : true,
-                }, 
-                image: {
-                    required : true,
-                }, 
-                
-            },
-            messages :{
-                category_name: {
-                    required : 'Plz Enter Category Name',
-                }, 
-                image: {
-                    required : 'Plz Selected Category Image',
-                }, 
-                 
-
-            },
-            errorElement : 'span', 
-            errorPlacement: function (error,element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight : function(element, errorClass, validClass){
-                $(element).addClass('is-invalid');
-            },
-            unhighlight : function(element, errorClass, validClass){
-                $(element).removeClass('is-invalid');
-            },
-        });
-    });
-    
-</script>
 
 <script type="text/javascript">
     $(document).ready(function(){
