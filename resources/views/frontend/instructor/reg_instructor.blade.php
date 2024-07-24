@@ -319,7 +319,7 @@
                     <div class="card-body">
 
 
-                        <form method="post" action="{route('instructor.register')}" class="row">
+                        <form method="post" action="{{ route('instructor.register') }}" class="row">
                             @csrf
 
                             <div class="input-box col-lg-6">

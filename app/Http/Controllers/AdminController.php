@@ -112,12 +112,12 @@ class AdminController extends Controller
 
         $request->validate([
             'name' => ['required','string','max:255'],
-            'email' => ['required','string','unique: users'],
+            'email' => ['required','string','unique:users'],
         ]);
 
         User::insert([
             'name' => $request->name,
-            'username' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
@@ -131,6 +131,29 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('instructor.login')->with($notification); 
+
+    } // End Method
+
+    //Instructor Method
+    public function AllInstructor(){
+
+        $allinstructor = User::where('role','instructor')->latest()->get();
+        return view('admin.backend.instructor.all_instructor',compact('allinstructor'));
+
+    } // End Method
+
+    public function UpdateUserStatus(Request $request){
+
+        $userId = $request->input('user_id');
+        $isChecked = $request->input('is_checked',0);
+
+        $user = User::find($userId);
+        if ($user) {
+            $user->status = $isChecked;
+            $user->save();
+        }
+
+        return response()->json(['message' => 'User Status Updated Successfully']);
 
     } // End Method
 

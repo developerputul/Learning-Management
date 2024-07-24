@@ -107,8 +107,10 @@ class CategoryController extends Controller
         return redirect()->back()->with($notification);
     } // End Method
 
-    /// SubCategory Method
 
+
+
+    ////////// SubCategory Method////////////////
     public function AllSubCategory(){
 
         $subcategory = SubCategory::latest()->get();
@@ -128,7 +130,7 @@ class CategoryController extends Controller
         SubCategory::insert([
             'category_id' => $request->category_id,
             'subcategory_name' => $request->subcategory_name,
-            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_slug)),
+            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)),
             
         ]);
 
