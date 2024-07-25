@@ -50,10 +50,12 @@ $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
     @endphp
         
                     <div class="course-badge-labels">
+                        
                         @if ($course->bestseller == 1)
                         <div class="course-badge">Bestseller</div>
                         @else  
                         @endif
+
                         @if ($course->highestrated == 1)
                         <div class="course-badge sky-blue">Highestrated</div>
                         @else 
