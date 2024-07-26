@@ -9,6 +9,8 @@ use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\WishListController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -148,6 +150,6 @@ Route::get('/subcategory/{id}/{slug}', [IndexController::class, 'SubCategoryCour
 
 Route::get('/instructor/details/{id}', [IndexController::class, 'InstrucotrDetails'])->name('instructor.details');
 
-
+Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
 
 //End Route Accessable  for All
