@@ -144,6 +144,8 @@ Route::get('/course/details/{id}/{slug}', [IndexController::class, 'CourseDetail
 
 Route::get('/category/{id}/{slug}', [IndexController::class, 'CategoryCourse']);
 
+Route::get('/subcategory/{id}/{slug}', [IndexController::class, 'SubCategoryCourse']);
+
 
 
 //End Route Accessable  for All
