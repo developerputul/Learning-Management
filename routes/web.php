@@ -146,6 +146,8 @@ Route::get('/category/{id}/{slug}', [IndexController::class, 'CategoryCourse']);
 
 Route::get('/subcategory/{id}/{slug}', [IndexController::class, 'SubCategoryCourse']);
 
+Route::get('/instructor/details/{id}', [IndexController::class, 'InstrucotrDetails'])->name('instructor.details');
+
 
 
 //End Route Accessable  for All
