@@ -37,7 +37,28 @@ class WishListController extends Controller
 
             return response()->json(['error' => 'At First Login in Your Account']);
         }
+    } // End Method
 
+    public function AllWishlist(){
+
+        return view('frontend.wishlist.all_wishlist');
+
+    } // Emd Method
+
+    public function GetWishlistCourse(){
+
+        $wishlist = Wishlist::with('course')->where('user_id',Auth::id())->latest()->get();
+        
+        $wishQty = Wishlist::count();
+
+        return response()->json(['Wishlist' => $wishlist, 'wishQty' => $wishQty]);
 
     } // End Method
+
+    public function RemoveWishlist($id){
+
+        Wishlist::where('user_id',Auth::id())->where('id',$id)->delete();
+        return response()->json(['success' => 'Successfully Course Remove']);
+
+    }// End Method
 }

@@ -41,7 +41,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
+
+
+//User Wishlist All Route //
+Route::controller(WishListController::class)->group(function(){
+
+    Route::get('/user/wishlist', 'AllWishlist')->name('user.wishlist');
+    Route::get('/get-wishlist-course', 'GetWishlistCourse');
+    Route::get('/wishlist-remove/{id}', 'RemoveWishlist');
+   
 });
+
+
+}); //End Auth All middleware Route
 
 require __DIR__.'/auth.php';
 
