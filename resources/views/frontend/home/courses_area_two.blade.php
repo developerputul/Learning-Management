@@ -16,33 +16,33 @@ $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
 
         <ul class="nav nav-tabs generic-tab justify-content-center pb-4" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="true">All</a>
+                <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" 
+                role="tab" aria-controls="business" aria-selected="true">All</a>
             </li>
-            
+        
             {{-- today update --}}
             @foreach ($categories as $category)
             <li class="nav-item">
-                <a class="nav-link" id="business-tab" data-toggle="tab" href="#business{{ $category->id }}"          role="tab" aria-controls="business" aria-selected="false">{{ $category->category_name }}</a>
+                <a class="nav-link" id="business-tab" data-toggle="tab" href="#business{{ $category->id }}"
+                role="tab" aria-controls="business" aria-selected="false">{{ $category->category_name }}</a>
             </li>
             @endforeach
         </ul>
-
     </div><!-- end container -->
 
+<div class="card-content-wrapper bg-gray pt-50px pb-120px">
+    <div class="container">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="business" role="tabpanel" aria-labelledby="business-tab">
+                <div class="row">
 
-        <div class="card-content-wrapper bg-gray pt-50px pb-120px">
-            <div class="container">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="business" role="tabpanel" aria-labelledby="business-tab">
-                        <div class="row">
-
-            @foreach ($courses  as $course)      
-            <div class="col-lg-4 responsive-column-half">
-                <div class="card card-item card-preview" data-tooltip-content="#tooltip_content_1{{ $course->id }}">
-                    <div class="card-image">
-                        <a href="{{ url('course/details/'.$course->id.'/'.$course->course_name_slug) }}" class="d-block">
-                            <img class="card-img-top lazy" src="{{ asset($course->course_image) }}" data-src="{{ asset($course->course_image) }}" alt="Card image cap">
-                        </a>
+    @foreach ($courses  as $course)      
+    <div class="col-lg-4 responsive-column-half">
+        <div class="card card-item card-preview" data-tooltip-content="#tooltip_content_1{{ $course->id }}">
+            <div class="card-image">
+                <a href="{{ url('course/details/'.$course->id.'/'.$course->course_name_slug) }}" class="d-block">
+                    <img class="card-img-top lazy" src="{{ asset($course->course_image) }}" data-src="{{ asset($course->course_image) }}" alt="Card image cap">
+                </a>
 
     @php
         $amount = $course->selling_price - $course->discount_price;

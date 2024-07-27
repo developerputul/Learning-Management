@@ -143,46 +143,35 @@
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
-                    <div class="shop-cart mr-4">
-                        <ul>
-                            <li>
-                                <p class="shop-cart-btn d-flex align-items-center">
-                                    <i class="la la-shopping-cart"></i>
-                                    <span class="product-count">2</span>
-                                </p>
-                                <ul class="cart-dropdown-menu">
-                                    <li class="media media-card">
-                                        <a href="shopping-cart.html" class="media-img">
-                                            <img src="images/small-img.jpg" alt="Cart image">
-                                        </a>
-                                        <div class="media-body">
-                                            <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                            <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                            <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                        </div>
-                                    </li>
-                                    <li class="media media-card">
-                                        <a href="shopping-cart.html" class="media-img">
-                                            <img src="images/small-img.jpg" alt="Cart image">
-                                        </a>
-                                        <div class="media-body">
-                                            <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                            <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                            <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                        </div>
-                                    </li>
-                                    <li class="media media-card">
-                                        <div class="media-body fs-16">
-                                            <p class="text-black font-weight-semi-bold lh-18">Total: <span class="cart-total">$12.99</span> <span class="before-price fs-14">$129.99</span></p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="shopping-cart.html" class="btn theme-btn w-100">Got to cart <i class="la la-arrow-right icon ml-1"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><!-- end shop-cart -->
+
+
+    <div class="shop-cart mr-4">
+        <ul>
+            <li>
+                <p class="shop-cart-btn d-flex align-items-center">
+                    <i class="la la-shopping-cart"></i>
+                    <span class="product-count" id="cartQty">0</span>
+                </p>
+                <ul class="cart-dropdown-menu">
+                   <div id="miniCart">
+
+                   </div>
+                   <br><br>
+                    <li class="media media-card">
+                        <div class="media-body fs-16">
+                            <p class="text-black font-weight-semi-bold lh-18">Total:$
+                            <span class="cart-total" id="cartSubTotal"></span> </p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="shopping-cart.html" class="btn theme-btn w-100">Got to cart <i class="la la-arrow-right icon ml-1"></i></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- end shop-cart -->
+
+
                     <div class="nav-right-button">
                         <a href="admission.html" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Admission</a>
                     </div><!-- end nav-right-button -->
