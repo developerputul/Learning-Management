@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishListController;
+use App\Http\Controllers\Frontend\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -153,15 +154,15 @@ Route::controller(CourseController::class)->group(function(){
 
 //Route Accessable  for All
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
-
 Route::get('/course/details/{id}/{slug}', [IndexController::class, 'CourseDetails']);
-
 Route::get('/category/{id}/{slug}', [IndexController::class, 'CategoryCourse']);
 
 Route::get('/subcategory/{id}/{slug}', [IndexController::class, 'SubCategoryCourse']);
-
 Route::get('/instructor/details/{id}', [IndexController::class, 'InstrucotrDetails'])->name('instructor.details');
 
 Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
+Route::post('/cart/data/store{id}', [CartController::class, 'AddToCart']);
+Route::get('/cart/data', [CartController::class, 'CartData']);
 
 //End Route Accessable  for All
+
