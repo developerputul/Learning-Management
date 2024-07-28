@@ -103,15 +103,14 @@
                         @endphp
                                     
                             <li>
-                                <a href="{{ url('category/'.$cat->id.'/'.$cat->category_slug) }}">{{ $cat->category_name }}<i class="la la-angle-right"></i></a>
-
+                                <a href="{{ url('category/'.$cat->id.'/'.$cat->category_slug) }}">
+                                    {{ $cat->category_name }}<i class="la la-angle-right"></i></a>
                                 <ul class="sub-menu">
                                     @foreach ($subcategories as $subcat)
                                     <li><a href="{{ url('subcategory/'.$subcat->id.'/'.$subcat->subcategory_slug) }}">
                                         {{ $subcat->subcategory_name }}</a></li>
                                     @endforeach
                                 </ul>
-                                
                             </li>
                                
                                     @endforeach

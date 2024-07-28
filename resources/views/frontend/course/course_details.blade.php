@@ -505,6 +505,7 @@
                     
                         <button type="button" class="btn theme-btn w-100 theme-btn-white mb-2"><i class="la la-shopping-bag mr-1"></i> Buy this course</button>
                     </div>
+
                     <p class="fs-14 text-center pb-4">30-Day Money-Back Guarantee</p>
                     <div class="preview-course-incentives">
                         <h3 class="card-title fs-18 pb-2">This course includes</h3>
