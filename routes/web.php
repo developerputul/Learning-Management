@@ -177,7 +177,7 @@ Route::controller(CartController::class)->group(function(){
 
     Route::get('/mycart', 'MyCart')->name('mycart');
     Route::get('/get-cart-course', 'GetCartCourse');
-    Route::get('/cart-remove/{rowId}', 'CartRemove');
+    Route::get('/cart-remove{rowId}', 'CartRemove');
     
 
 }); 

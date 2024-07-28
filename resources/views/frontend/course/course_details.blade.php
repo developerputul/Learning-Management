@@ -482,49 +482,54 @@
             $discount = ($amount/$course->selling_price) * 100;
             @endphp
                             
-                            <div class="preview-course-feature-content pt-40px">
-                                <p class="d-flex align-items-center pb-2">
-                                    @if ($course->discount_price == NULL)
-                                    <span class="fs-35 font-weight-semi-bold text-black">${{ $course->selling_price }}</span> 
+                <div class="preview-course-feature-content pt-40px">
+                    <p class="d-flex align-items-center pb-2">
+                        @if ($course->discount_price == NULL)
+                        <span class="fs-35 font-weight-semi-bold text-black">${{ $course->selling_price }}</span> 
 
-                                    @else
-                                    <span class="fs-35 font-weight-semi-bold text-black">${{ $course->discount_price }}</span>
-                                    <span class="before-price mx-1">${{ $course->selling_price }}</span>
-                                    @endif
-                                    
+                        @else
+                        <span class="fs-35 font-weight-semi-bold text-black">${{ $course->discount_price }}</span>
+                        <span class="before-price mx-1">${{ $course->selling_price }}</span>
+                        @endif
+                        
 
-                                    <span class="price-discount">{{ round($discount) }}% off</span>
+                        <span class="price-discount">{{ round($discount) }}% off</span>
 
-                                </p>
-                                <p class="preview-price-discount-text pb-35px">
-                                    <span class="text-color-3">4 days</span> left at this price!
-                                </p>
-                                <div class="buy-course-btn-box">
-                                    <button type="button" class="btn theme-btn w-100 mb-2"><i class="la la-shopping-cart fs-18 mr-1"></i> Add to cart</button>
-                                    <button type="button" class="btn theme-btn w-100 theme-btn-white mb-2"><i class="la la-shopping-bag mr-1"></i> Buy this course</button>
-                                </div>
-                                <p class="fs-14 text-center pb-4">30-Day Money-Back Guarantee</p>
-                                <div class="preview-course-incentives">
-                                    <h3 class="card-title fs-18 pb-2">This course includes</h3>
+                    </p>
+                    <p class="preview-price-discount-text pb-35px">
+                        <span class="text-color-3">4 days</span> left at this price!
+                    </p>
+                    
+                    <div class="buy-course-btn-box">
+                        <button type="submit" class="btn theme-btn w-100 mb-2" onclick="addToCart({{ $course->id }}, '{{ $course->course_name }}', '{{ $course->instructor_id }}', '{{ $course->course_name_slug }}' )" ><i class="la la-shopping-cart fs-18 mr-1"></i> Add to cart</button>
+                    
+                        <button type="button" class="btn theme-btn w-100 theme-btn-white mb-2"><i class="la la-shopping-bag mr-1"></i> Buy this course</button>
+                    </div>
+                    <p class="fs-14 text-center pb-4">30-Day Money-Back Guarantee</p>
+                    <div class="preview-course-incentives">
+                        <h3 class="card-title fs-18 pb-2">This course includes</h3>
 
-                                    <ul class="generic-list-item pb-3">
-                                <li><i class="la la-play-circle-o mr-2 text-color"></i>{{ $course->duration }} hours on-demand video</li>
-                                <li><i class="la la-file mr-2 text-color"></i>{{ $course->resources }} articles</li>
-                                <li><i class="la la-file-text mr-2 text-color"></i>12 downloadable resources</li>
-                                <li><i class="la la-code mr-2 text-color"></i>51 coding exercises</li>
-                                <li><i class="la la-key mr-2 text-color"></i>Full lifetime access</li>
-                                <li><i class="la la-television mr-2 text-color"></i>Access on mobile and TV</li>
-                                <li><i class="la la-certificate mr-2 text-color"></i>Certificate of Completion</li>
-                                    </ul>
+                        <ul class="generic-list-item pb-3">
+                    <li>
+                        <i class="la la-play-circle-o mr-2 text-color"></i>{{ $course->duration }}hours on-demand video
+                    </li>
 
-                                    <div class="section-block"></div>
-                                    <div class="buy-for-team-container pt-4">
-                                        <h3 class="fs-18 font-weight-semi-bold pb-2">Training 5 or more people?</h3>
-                                        <p class="lh-24 pb-3">Get your team access to 3,000+ top Aduca courses anytime, anywhere.</p>
-                                        <a href="for-business.html" class="btn theme-btn theme-btn-sm theme-btn-transparent lh-30 w-100">Try Aduca for Business</a>
-                                    </div>
-                                </div><!-- end preview-course-incentives -->
-                            </div><!-- end preview-course-content -->
+                    <li><i class="la la-file mr-2 text-color"></i>{{ $course->resources }} articles</li>
+                    <li><i class="la la-file-text mr-2 text-color"></i>12 downloadable resources</li>
+                    <li><i class="la la-code mr-2 text-color"></i>51 coding exercises</li>
+                    <li><i class="la la-key mr-2 text-color"></i>Full lifetime access</li>
+                    <li><i class="la la-television mr-2 text-color"></i>Access on mobile and TV</li>
+                    <li><i class="la la-certificate mr-2 text-color"></i>Certificate of Completion</li>
+                        </ul>
+
+                        <div class="section-block"></div>
+                        <div class="buy-for-team-container pt-4">
+                            <h3 class="fs-18 font-weight-semi-bold pb-2">Training 5 or more people?</h3>
+                            <p class="lh-24 pb-3">Get your team access to 3,000+ top Aduca courses anytime, anywhere.</p>
+                            <a href="for-business.html" class="btn theme-btn theme-btn-sm theme-btn-transparent lh-30 w-100">Try Aduca for Business</a>
+                        </div>
+                    </div><!-- end preview-course-incentives -->
+                </div><!-- end preview-course-content -->
                         </div>
                     </div><!-- end card -->
                     <div class="card card-item">
@@ -535,11 +540,17 @@
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-clock mr-2 text-color"></i>Duration</span> {{ $course->duration }} hours</li>
                                
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-file-text-o mr-2 text-color"></i>Resources</span> {{ $course->resources }}</li>
+
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-bolt mr-2 text-color"></i>Quizzes</span> 26</li>
+
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-eye mr-2 text-color"></i>Preview Lessons</span> 4</li>
+
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-language mr-2 text-color"></i>Language</span> English</li>
+                                
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-lightbulb mr-2 text-color"></i>Skill level</span> {{ $course->label }}</li>
+
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-users mr-2 text-color"></i>Students</span> 30,506</li>
+
                                 <li class="d-flex align-items-center justify-content-between"><span><i class="la la-certificate mr-2 text-color"></i>Certificate</span> {{ $course->certificate }}</li>
                             </ul>
                         </div>
