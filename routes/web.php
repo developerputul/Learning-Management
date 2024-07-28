@@ -92,12 +92,14 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('/delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
 });
 
+
 //Instructor All Route //
 Route::controller(AdminController::class)->group(function(){
     Route::get('/all/instructor', 'AllInstructor')->name('all.instructor');
     Route::post('/update/user/status', 'UpdateUserStatus')->name('update.user.status');
 
 }); 
+
 
 }); 
 //End Admin Group Middleware//
@@ -167,6 +169,18 @@ Route::get('/cart/data', [CartController::class, 'CartData']);
 //Get Data from Minicart
 Route::get('/course/mini/cart', [CartController::class, 'AddMiniCart']);
 Route::get('/minicart/course/remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
+
+
+
+//MyCart All Route //
+Route::controller(CartController::class)->group(function(){
+
+    Route::get('/mycart', 'MyCart')->name('mycart');
+    Route::get('/get-cart-course', 'GetCartCourse');
+    Route::get('/cart-remove/{rowId}', 'CartRemove');
+    
+
+}); 
 
 //End Route Accessable  for All
 
