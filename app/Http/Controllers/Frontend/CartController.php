@@ -12,6 +12,7 @@ use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Coupon;
 
 class CartController extends Controller
 {
@@ -116,6 +117,11 @@ class CartController extends Controller
 
         Cart::remove($rowId);
         return response()->json(['success' => 'Course Remove From Cart']);
+
+    } // End Method
+
+    public function CouponApply(Request $request){
+
 
     } // End Method
 }

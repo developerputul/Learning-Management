@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
@@ -92,14 +93,12 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('/delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
 });
 
-
 //Instructor All Route //
 Route::controller(AdminController::class)->group(function(){
     Route::get('/all/instructor', 'AllInstructor')->name('all.instructor');
     Route::post('/update/user/status', 'UpdateUserStatus')->name('update.user.status');
 
 }); 
-
 
 //Admin Courses All Route //
 Route::controller(AdminController::class)->group(function(){
@@ -110,8 +109,26 @@ Route::controller(AdminController::class)->group(function(){
 }); 
 
 
+//Admin Coupon All Route //
+Route::controller(CouponController::class)->group(function(){
+    Route::get('/admin/all/coupon', 'AdminAllCoupon')->name('admin.all.coupon');
+    Route::get('/admin/add/coupon', 'AdminAddCoupon')->name('admin.add.coupon');
+    Route::post('/admin/store/coupon', 'AdminStoreCoupon')->name('admin.store.coupon');
+
+    Route::get('/admin/edit/coupon/{id}', 'AdminEditCoupon')->name('admin.edit.coupon');
+    Route::post('/admin/update/coupon', 'AdminUpdateCoupon')->name('admin.update.coupon');
+    Route::get('/admin/delete/coupon/{id}', 'AdminDeleteCoupon')->name('admin.delete.coupon');
+    
+   
+}); 
+
+
+
+
 
 }); 
+
+
 //End Admin Group Middleware//
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
@@ -191,6 +208,8 @@ Route::controller(CartController::class)->group(function(){
     
 
 }); 
+
+Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
 
 //End Route Accessable  for All
 
