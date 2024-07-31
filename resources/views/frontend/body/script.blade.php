@@ -326,6 +326,7 @@ function cartRemove(rowId){
             success:function(data){
             miniCart();
             cart();
+            couponCalculation();
 
         // Start Message 
         const Toast = Swal.mixin({
@@ -372,6 +373,7 @@ function applyCoupon(){
             url: "/coupon-apply",
 
             success:function(data){
+                couponCalculation();
 
                 if (data.validity == true) {
 
@@ -446,7 +448,11 @@ function applyCoupon(){
 
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
                         <span class="text-black">Coupon Name : </span>
-                        <span>${data.coupon_name}</span>
+                        <span>${data.coupon_name} <button type="button" class="icon-element icon-element-xs 
+                            shadow-sm border-0" data-toggle="tooltip" data-placement="top" onclick="couponRemove()">
+                            <i class="la la-times"></i>
+                        </button></span>
+                        
                     </li>
 
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
@@ -470,3 +476,43 @@ function applyCoupon(){
 
 </script>
 {{-- //End Coupon  --}}
+ {{-- /// Remove Coupon Start  // --}}
+ <script type="text/javascript">
+        
+        function couponRemove(){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: '/coupon-remove',
+                success:function(data){
+
+                    couponCalculation(); 
+                    $('#couponField').show();
+                    // Start Message 
+        const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000 
+                })
+                if ($.isEmptyObject(data.error)) {
+                        
+                        Toast.fire({
+                        type: 'success', 
+                        icon: 'success', 
+                        title: data.success, 
+                        })
+                }else{
+                
+            Toast.fire({
+                        type: 'error', 
+                        icon: 'error', 
+                        title: data.error, 
+                        })
+                    }
+                // End Message   
+                }
+            })
+        }
+        </script>
+{{-- /// End Remove Coupon  // --}}
