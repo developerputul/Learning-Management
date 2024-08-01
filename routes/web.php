@@ -209,9 +209,13 @@ Route::controller(CartController::class)->group(function(){
 
 }); 
 
+// Coupon All Route
 Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
 Route::get('/counpon-calculation', [CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
+
+//Checkout Page Route
+Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 
 //End Route Accessable  for All
 

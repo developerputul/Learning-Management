@@ -186,4 +186,36 @@ class CartController extends Controller
         return response()->json(['success' => 'Coupon Remove Successfully']);
 
     }// End Method 
+
+    public function CheckoutCreate(){
+
+        if (Auth::check()) {
+           
+            if (Cart::total() > 0) {
+
+                $carts = Cart::content();
+                $cartTotal = Cart::total();
+                $cartQty = Cart::count();
+
+                return view('frontend.checkout.checkout_view',compact('carts','cartTotal','cartQty'));
+            } else {
+
+                $notification = array(
+                    'message' => 'Add At List One Course',
+                    'alert-type' => 'error'
+                );
+                return redirect()->to('/')->with($notification); 
+            }//end else
+        } else {
+
+            $notification = array(
+                'message' => 'You Need To Login First',
+                'alert-type' => 'error'
+            );
+            return redirect()->route('login')->with($notification); 
+
+        }
+
+
+    } // End Method
 }
