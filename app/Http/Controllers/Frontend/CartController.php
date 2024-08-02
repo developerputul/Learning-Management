@@ -15,7 +15,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Coupon;
 use App\Models\Payment;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use App\Mail\Orderconfirm;
 
 class CartController extends Controller
 {
@@ -271,6 +273,22 @@ class CartController extends Controller
          } //end foreach
 
          $request->session()->forget('cart');
+
+         $paymentId = $data->id;
+
+         //Statr Send to Student Email
+
+         $sendmail = Payment::find($paymentId);
+         $data = [
+            'invoice_no' => $sendmail->invoice_no,
+            'amount' => $total_amount,
+            'name' => $sendmail->name,
+            'email' => $sendmail->email,
+         ];
+
+         Mail::to($request->email)->send(new Orderconfirm($data)); 
+
+         //End Send to Student Email
 
          if ($request->cash_delivery == 'stripe') {
             echo "stripe";
