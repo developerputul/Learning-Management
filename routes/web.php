@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
 
@@ -119,7 +120,13 @@ Route::controller(CouponController::class)->group(function(){
     Route::post('/admin/update/coupon', 'AdminUpdateCoupon')->name('admin.update.coupon');
     Route::get('/admin/delete/coupon/{id}', 'AdminDeleteCoupon')->name('admin.delete.coupon');
     
-   
+}); 
+
+//Admin Coupon All Route //
+Route::controller(SettingController::class)->group(function(){
+    Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
+    Route::post('/update/smtp', 'UpdateSmtp')->name('update.smtp');
+    
 }); 
 
 
@@ -129,7 +136,8 @@ Route::controller(CouponController::class)->group(function(){
 }); 
 
 
-//End Admin Group Middleware//
+////////////End Admin Group Middleware//////////////
+////////////End Admin Group Middleware//////////////
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 Route::get('/become/instructor', [AdminController::class, 'BecomeInstructor'])->name('become.instructor');
