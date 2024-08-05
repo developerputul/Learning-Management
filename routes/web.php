@@ -130,11 +130,7 @@ Route::controller(SettingController::class)->group(function(){
 }); 
 
 
-
-
-
 }); 
-
 
 ////////////End Admin Group Middleware//////////////
 ////////////End Admin Group Middleware//////////////
@@ -186,7 +182,8 @@ Route::controller(CourseController::class)->group(function(){
 }); 
 
 
-}); // End Instructor Group Middleware//
+}); ////// End Instructor Group Middleware/////////
+    ////// End Instructor Group Middleware/////////
 
 
 //Route Accessable  for All
@@ -199,6 +196,8 @@ Route::get('/instructor/details/{id}', [IndexController::class, 'InstrucotrDetai
 
 Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
 Route::post('/cart/data/store{id}', [CartController::class, 'AddToCart']);
+Route::post('/buy/data/store{id}', [CartController::class, 'BuyToCart']);
+
 Route::get('/cart/data', [CartController::class, 'CartData']);
 
 //Get Data from Minicart
