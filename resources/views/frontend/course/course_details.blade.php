@@ -150,9 +150,9 @@
                            <div id="accordion" class="generic-accordion">
 
                             @foreach ($section as $sect)
-                            @php
-                                $lecture = App\Models\CourseLecture::where('section_id',$sect->id)->get();
-                            @endphp
+                @php
+                    $lecture = App\Models\CourseLecture::where('section_id',$sect->id)->get();
+                @endphp
 
                                <div class="card">
                                    <div class="card-header" id="heading{{ $sect->id }}">
@@ -164,7 +164,7 @@
                                            <span class="fs-15 text-gray font-weight-medium">{{ count($lecture) }} lectures</span>
                                        </button>
                                    </div><!-- end card-header -->
-                                   <div id="collapse{{ $sect->id }}" class="collapse show" aria-labelledby="heading{{ $sect->id }}" data-parent="#accordion">
+                                   <div id="collapse{{ $sect->id }}" class="collapse" aria-labelledby="heading{{ $sect->id }}" data-parent="#accordion">
                                        <div class="card-body">
                                            <ul class="generic-list-item">
 
