@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
@@ -60,7 +61,8 @@ Route::controller(WishListController::class)->group(function(){
 
 require __DIR__.'/auth.php';
 
-///Admin Group Middleware///
+///Start Admin Group Middleware///
+///Start Admin Group Middleware///
 Route::middleware(['auth','roles:admin'])->group(function(){
 
 Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -126,6 +128,13 @@ Route::controller(CouponController::class)->group(function(){
 Route::controller(SettingController::class)->group(function(){
     Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
     Route::post('/update/smtp', 'UpdateSmtp')->name('update.smtp');
+    
+}); 
+
+//Admin Order All Route //
+Route::controller(OrderController::class)->group(function(){
+    Route::get('/admin/pending/order', 'AdminPendingOrder')->name('admin.pending.order');
+   
     
 }); 
 
