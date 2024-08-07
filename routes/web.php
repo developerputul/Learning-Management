@@ -151,7 +151,8 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
 Route::get('/become/instructor', [AdminController::class, 'BecomeInstructor'])->name('become.instructor');
 Route::post('/instructor/register', [AdminController::class, 'InstructorRegister'])->name('instructor.register');
 
-//Instructor Group Middleware//
+////////Instructor Group Middleware/////////
+////////Instructor Group Middleware/////////
 Route::middleware(['auth','roles:instructor'])->group(function(){
 
 Route::get('/instructor/dashboard', [InstructorController::class, 'InstructorDashboard'])->name('instructor.dashboard');
@@ -191,6 +192,15 @@ Route::controller(CourseController::class)->group(function(){
     Route::get('/delete/lecture/{id}', 'DeleteLecture')->name('delete.lecture');
     Route::post('/delete/section/{id}', 'DeleteSection')->name('delete.section');
 
+}); 
+
+//Admin Order All Route //
+Route::controller(OrderController::class)->group(function(){
+    Route::get('/instructor/all/order', 'InstructorAllOrder')->name('instructor.all.order');
+    Route::get('/instructor/order/details/{payment_id}', 'InstructorOrderDetails')->name('instructor.order.details');
+ 
+   
+    
 }); 
 
 
