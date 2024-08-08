@@ -1,35 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="TechyDevs">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Course Details</title>
+@include('frontend.mycourse.body.header')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="icon" sizes="16x16" href="{{ asset('frontend/images/favicon.png') }}">
-
-    <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/line-awesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/fancybox.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/animated-headline.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/plyr.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jquery-te-1.4.0.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <!-- end inject -->
-</head>
 <body>
-
 <!-- start cssload-loader -->
 <div class="preloader">
     <div class="loader">
@@ -39,7 +13,6 @@
     </div>
 </div>
 <!-- end cssload-loader -->
-
 <!--======================================
         START HEADER AREA
     ======================================-->
@@ -70,7 +43,7 @@
                     </div>
                 </div><!-- end logo-box -->
 <div class="course-dashboard-header-title pl-4">
-    <a href="course-details.html" class="text-white fs-15">Java Programming Masterclass for Software Developers</a>
+    <a href="course-details.html" class="text-white fs-15">{{ $course->course->course_name }}</a>
 </div><!-- end course-dashboard-header-title -->
 <div class="menu-wrapper ml-auto">
     <div class="theme-picker d-flex align-items-center mr-3">
@@ -118,6 +91,12 @@
 END HEADER AREA
 ======================================-->
 
+
+
+
+
+
+
 <!--======================================
 START COURSE-DASHBOARD
 ======================================-->
@@ -125,47 +104,24 @@ START COURSE-DASHBOARD
 <div class="course-dashboard-wrap">
 <div class="course-dashboard-container d-flex">
 <div class="course-dashboard-column">
-<div class="lecture-viewer-container">
-    <div class="lecture-video-item">
-        <video controls crossorigin playsinline id="player">
-            <!-- Video files -->
-            <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4"/>
-            <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4"/>
-            <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4"/>
 
-            <!-- Caption files -->
-            <track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt" default/>
-            <track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"/>
 
-            <!-- Fallback for browsers that don't support the <video> element -->
-            <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
-        </video>
-    </div>
-    <div class="lecture-viewer-text-wrap">
-        <div class="lecture-viewer-text-content custom-scrollbar-styled">
-            <div class="lecture-viewer-text-body">
-                <h2 class="fs-24 font-weight-semi-bold pb-4">Download your Footage for your Quick Start</h2>
-                <div class="lecture-viewer-content-detail">
-                    <ul class="generic-list-item pb-4">
-                        <li>Hi</li>
-                        <li>Welcome to Motion Graphics in After Effects. </li>
-                        <li>In the next lectures you will start creating your first animation and animate imported footage.</li>
-                        <li>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes,</li>
-                        <li>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </li>
-                        <li>Occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </li>
-                        <li>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus,</li>
-                        <li>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. </li>
-                        <li><strong class="font-weight-semi-bold">Download your footage Now, Click on the Link Below.</strong></li>
-                    </ul>
-                    <div class="btn-box">
-                        <h3 class="fs-18 font-weight-semi-bold pb-3">Resources for this lecture</h3>
-                        <a href="#" class="btn theme-btn theme-btn-transparent"><i class="la la-file-zip-o mr-1"></i>Quick-start.zip</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div><!-- end lecture-viewer-container -->
+    <div class="lecture-viewer-container">
+        <div class="lecture-video-item">
+            <iframe width="100%" height="500" id="videoContainer" src="" 
+                title="The Best Way to Learn With Videos and Online Classes I Video Notebook" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+            <div id="textLesson" class="fs-24 font-weight-semi-bold pb-2 text-center mt-4">
+            <h3></h3>
+            </div> 
+        </div> 
+    </div><!-- end lecture-viewer-container -->
+
+
+
+
 <div class="lecture-video-detail">
     <div class="lecture-tab-body bg-gray p-4">
         <ul class="nav nav-tabs generic-tab" id="myTab" role="tablist">
@@ -214,9 +170,15 @@ START COURSE-DASHBOARD
                     </div>
                 </div><!-- end search-course-wrap -->
             </div><!-- end tab-pane -->
-            <div class="tab-pane fade" id="course-content" role="tabpanel" aria-labelledby="course-content-tab">
+
+
+
+
+            <div class="tab-pane fade" id="course-content" role="tabpanel"   aria-labelledby="course-content-tab">
                 <div class="mobile-course-menu pt-4">
                     <div class="accordion generic-accordion generic--accordion" id="mobileCourseAccordionCourseExample">
+
+
                         <div class="card">
                             <div class="card-header" id="mobileCourseHeadingOne">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#mobileCourseCollapseOne" aria-expanded="true" aria-controls="mobileCourseCollapseOne">
@@ -304,227 +266,8 @@ START COURSE-DASHBOARD
                                 </div><!-- end card-body -->
                             </div><!-- end collapse -->
                         </div><!-- end card -->
-                        <div class="card">
-                            <div class="card-header" id="mobileCourseHeadingTwo">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#mobileCourseCollapseTwo" aria-expanded="false" aria-controls="mobileCourseCollapseTwo">
-                                    <i class="la la-angle-down"></i>
-                                    <i class="la la-angle-up"></i>
-                                    <span class="fs-15">Section 2: Jump Start Into Motion Graphics</span>
-                                    <span class="course-duration">
-                                        <span>1/5</span>
-                                        <span>21min</span>
-                                    </span>
-                                </button>
-                            </div><!-- end card-header -->
-                            <div id="mobileCourseCollapseTwo" class="collapse" aria-labelledby="mobileCourseHeadingTwo" data-parent="#mobileCourseAccordionCourseExample">
-                                <div class="card-body p-0">
-                                    <ul class="curriculum-sidebar-list">
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox5" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox5"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">5. Let's Have Fun - Seriously!</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox6" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox6"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">6. A simple concept to get ahead</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                        <li class="course-item-link active-resource">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox7" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox7"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">7. Download your Footage for your Quick Start</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-file"></i>2min</p>
-                                                        <div class="generic-action-wrap">
-                                                            <div class="dropdown">
-                                                                <a class="btn theme-btn theme-btn-sm theme-btn-transparent mt-1 fs-14 font-weight-medium" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="la la-folder-open mr-1"></i> Resources<i class="la la-angle-down ml-1"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="javascript:void(0)">
-                                                                        Section-Footage.zip
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end generic-action-wrap -->
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox8" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox8"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">8. Jump in and Animate your Character</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                    </ul>
-                                </div><!-- end card-body -->
-                            </div><!-- end collapse -->
-                        </div><!-- end card -->
-                        <div class="card">
-                            <div class="card-header" id="mobileCourseHeadingThree">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#mobileCourseCollapseThree" aria-expanded="false" aria-controls="mobileCourseCollapseThree">
-                                    <i class="la la-angle-down"></i>
-                                    <i class="la la-angle-up"></i>
-                                    <span class="fs-15">Section 3: Graphics from within After Effects</span>
-                                    <span class="course-duration">
-                                        <span>1/5</span>
-                                        <span>21min</span>
-                                    </span>
-                                </button>
-                            </div><!-- end card-header -->
-                            <div id="mobileCourseCollapseThree" class="collapse" aria-labelledby="mobileCourseHeadingThree" data-parent="#mobileCourseAccordionCourseExample">
-                                <div class="card-body p-0">
-                                    <ul class="curriculum-sidebar-list">
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox9" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox9"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">9. Let's Have Fun - Seriously!</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox10" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox10"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">10. A simple concept to get ahead</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                        <li class="course-item-link active-resource">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox11" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox11"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">11. Download your Footage for your Quick Start</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-file"></i>2min</p>
-                                                        <div class="generic-action-wrap">
-                                                            <div class="dropdown">
-                                                                <a class="btn theme-btn theme-btn-sm theme-btn-transparent mt-1 fs-14 font-weight-medium" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="la la-folder-open mr-1"></i> Resources<i class="la la-angle-down ml-1"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="javascript:void(0)">
-                                                                        Section-Footage.zip
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end generic-action-wrap -->
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox12" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox12"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">12. Jump in and Animate your Character</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                    </ul>
-                                </div><!-- end card-body -->
-                            </div><!-- end collapse -->
-                        </div><!-- end card -->
-                        <div class="card">
-                            <div class="card-header" id="mobileCourseHeadingFour">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#mobileCourseCollapseFour" aria-expanded="false" aria-controls="mobileCourseCollapseFour">
-                                    <i class="la la-angle-down"></i>
-                                    <i class="la la-angle-up"></i>
-                                    <span class="fs-15">Section 4: Bonus Lecture</span>
-                                    <span class="course-duration">
-                                        <span>1/5</span>
-                                        <span>21min</span>
-                                    </span>
-                                </button>
-                            </div><!-- end card-header -->
-                            <div id="mobileCourseCollapseFour" class="collapse" aria-labelledby="mobileCourseHeadingFour" data-parent="#mobileCourseAccordionCourseExample">
-                                <div class="card-body p-0">
-                                    <ul class="curriculum-sidebar-list">
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox13" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox13"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">13. Bonus Courses - Learn more for less</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                        <li class="course-item-link">
-                                            <div class="course-item-content-wrap">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="mobileCourseCheckbox14" required>
-                                                    <label class="custom-control-label custom--control-label" for="mobileCourseCheckbox14"></label>
-                                                </div><!-- end custom-control -->
-                                                <div class="course-item-content">
-                                                    <h4 class="fs-15">14. Conclusion</h4>
-                                                    <div class="courser-item-meta-wrap">
-                                                        <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                                    </div>
-                                                </div><!-- end course-item-content -->
-                                            </div><!-- end course-item-content-wrap -->
-                                        </li>
-                                    </ul>
-                                </div><!-- end card-body -->
-                            </div><!-- end collapse -->
-                        </div><!-- end card -->
+
+
                     </div><!-- end accordion-->
                 </div><!-- end mobile-course-menu -->
             </div><!-- end tab-pane -->
@@ -532,7 +275,7 @@ START COURSE-DASHBOARD
                 <div class="lecture-overview-wrap">
                     <div class="lecture-overview-item">
                         <h3 class="fs-24 font-weight-semi-bold pb-2">About this course</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dicta eos iste maxime sapiente similique totam? Consequatur consequuntur excepturi in, magni necessitatibus nemo quae repellendus</p>
+                        <p>{{ $course->course->course_title }}</p>
                     </div><!-- end lecture-overview-item -->
                     <div class="section-block"></div>
                     <div class="lecture-overview-item">
@@ -542,7 +285,7 @@ START COURSE-DASHBOARD
                             </div><!-- end lecture-overview-stats-item -->
                             <div class="lecture-overview-stats-item">
                                 <ul class="generic-list-item">
-                                    <li><span>Skill level:</span>All Levels</li>
+                                    <li><span>Skill level:</span>{{ $course->course->label }}</li>
                                     <li><span>Students:</span>83950</li>
                                     <li><span>Languages:</span>English</li>
                                     <li><span>Captions:</span>Yes</li>
@@ -550,9 +293,9 @@ START COURSE-DASHBOARD
                             </div><!-- end lecture-overview-stats-item -->
                             <div class="lecture-overview-stats-item">
                                 <ul class="generic-list-item">
-                                    <li><span>Lectures:</span>30</li>
-                                    <li><span>Video length:</span>3.5 total hours</li>
-                                    <li><span>Certificate:</span>Yes</li>
+                                    <li><span>Resources:</span>{{ $course->course->resources }}</li>
+                                    <li><span>Video length:</span>{{ $course->course->duration }} total hours</li>
+                                    <li><span>Certificate:</span>{{ $course->course->certificate }}</li>
                                 </ul>
                             </div><!-- end lecture-overview-stats-item -->
                         </div><!-- end lecture-overview-stats-wrap -->
@@ -588,91 +331,17 @@ START COURSE-DASHBOARD
                             </div><!-- end lecture-overview-stats-item -->
                             <div class="lecture-overview-stats-item lecture-overview-stats-wide-item lecture-description">
                                 <h3 class="fs-16 font-weight-semi-bold pb-2">From the Author of the Best Selling After Effects CC 2020 Complete Course</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque ea esse inventore odit voluptate. Accusantium asperiores at doloremque ex impedit ipsa itaque. Consequuntur dignissimos itaque mollitia tenetur voluptatem. Aut beatae blanditiis consequuntur corporis delectus deserunt dolores eos et fugit hic illo, impedit in magnam mollitia nulla placeat porro, possimus quae quaerat quasi quidem recusandae reprehenderit saepe, suscipit voluptatibus.</p>
-                                <div class="collapse" id="collapseMore">
-                                    <p>Aliquid odit perspiciatis quidem rerum? Architecto aspernatur beatae consectetur illo labore molestias natus, provident quas tempore ut vitae voluptate! Dicta doloremque dolores doloribus dolorum ea enim est ex harum mollitia natus necessitatibus, non officiis repellat rerum sed sint vel voluptatem. Aspernatur enim error esse facere numquam quidem reiciendis sit soluta suscipit voluptates.</p>
-                                    <ul class="generic-list-item generic-list-item-bullet">
-                                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                        <li>Cumque ea esse inventore odit voluptate.</li>
-                                        <li>Phasellus posuere urna et faucibus</li>
-                                        <li>Mauris faucibus ligula vestibulum </li>
-                                        <li>Phasellus posuere urna </li>
-                                    </ul>
-                                    <p>impedit in magnam mollitia nulla placeat porro, possimus quae quaerat quasi quidem recusandae reprehenderit saepe, suscipit voluptatibus. Beatae, fugiat? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque ea esse inventore odit voluptate. Accusantium asperiores at doloremque ex impedit ipsa itaque. Consequuntur dignissimos itaque mollitia tenetur voluptatem. Aut beatae blanditiis consequuntur corporis delectus deserunt dolores eos et fugit hic illo, impedit in magnam mollitia nulla placeat porro, possimus quae quaerat quasi quidem recusandae reprehenderit saepe, suscipit voluptatibus. Beatae, fugiat?</p>
-                                    <p>See you in the course.</p>
-                                    <p>Alex</p>
-                                    <h3 class="fs-16 font-weight-semi-bold pb-2">What you’ll learn</h3>
-                                    <ul class="generic-list-item generic-list-item-bullet">
-                                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                        <li>Cumque ea esse inventore odit voluptate.</li>
-                                        <li>Phasellus posuere urna et faucibus</li>
-                                        <li>Mauris faucibus ligula vestibulum </li>
-                                        <li>Phasellus posuere urna </li>
-                                    </ul>
-                                    <h3 class="fs-16 font-weight-semi-bold pb-2">Are there any course requirements or prerequisites?</h3>
-                                    <ul class="generic-list-item generic-list-item-bullet">
-                                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                        <li>Cumque ea esse inventore odit voluptate.</li>
-                                        <li>Phasellus posuere urna et faucibus</li>
-                                        <li>Mauris faucibus ligula vestibulum </li>
-                                    </ul>
-                                    <h3 class="fs-16 font-weight-semi-bold pb-2">Who this course is for:</h3>
-                                    <ul class="generic-list-item generic-list-item-bullet">
-                                        <li>Consectetur adipisicing elit.</li>
-                                        <li>Cumque ea esse inventore odit voluptate.</li>
-                                        <li>Phasellus posuere urna et faucibus</li>
-                                        <li>Phasellus posuere urna et faucibus</li>
-                                        <li>Mauris faucibus ligula vestibulum</li>
-                                        <li>Mauris faucibus ligula vestibulum </li>
-                                    </ul>
-                                </div>
-                                <div class="show-more-btn-box">
-                                    <a class="collapse-btn collapse--btn fs-15" data-toggle="collapse" href="#collapseMore" role="button" aria-expanded="false" aria-controls="collapseMore">
-                                        <span class="collapse-btn-hide">Read more<i class="la la-angle-down ml-1 fs-14"></i></span>
-                                        <span class="collapse-btn-show">Read less<i class="la la-angle-up ml-1 fs-14"></i></span>
-                                    </a>
-                                </div><!-- end show-more-btn-box -->
+                                <p>{!! $course->course->description !!}</p>
+
                             </div><!-- end lecture-overview-stats-item -->
                         </div><!-- end lecture-overview-stats-wrap -->
                     </div><!-- end lecture-overview-item -->
                     <div class="section-block"></div>
-                    <div class="lecture-overview-item">
-                        <div class="lecture-overview-stats-wrap d-flex ">
-                            <div class="lecture-overview-stats-item">
-                                <h3 class="fs-16 font-weight-semi-bold pb-2">Instructor</h3>
-                            </div><!-- end lecture-overview-stats-item -->
-                            <div class="lecture-overview-stats-item lecture-overview-stats-wide-item">
-                                <div class="media media-card align-items-center">
-                                    <a href="teacher-detail.html" class="media-img d-block rounded-full avatar-md">
-                                        <img src="images/small-avatar-1.jpg" alt="Instructor avatar" class="rounded-full">
-                                    </a>
-                                    <div class="media-body">
-                                        <h5><a href="teacher-detail.html">Alex Smith</a></h5>
-                                        <span class="d-block lh-18 pt-2">Java Python Android and C# Expert Developer</span>
-                                    </div>
-                                </div>
-                                <div class="lecture-owner-profile pt-4">
-                                    <ul class="social-icons social-icons-styled">
-                                        <li><a href="#" class="facebook-bg"><i class="la la-facebook"></i></a></li>
-                                        <li><a href="#" class="twitter-bg"><i class="la la-twitter"></i></a></li>
-                                        <li><a href="#" class="instagram-bg"><i class="la la-instagram"></i></a></li>
-                                        <li><a href="#" class="linkedin-bg"><i class="la la-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="lecture-owner-decription pt-4">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus ligula vestibulum venenatis efficitur. Phasellus posuere urna et faucibus vestibulum. Duis quis eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus ligula vestibulum venenatis efficitur. Phasellus posuere urna et faucibus vestibulum. Duis quis eros.</p>
-                                    <p>Consequuntur dignissimos itaque mollitia tenetur voluptatem. Aut beatae blanditiis consequuntur corporis delectus deserunt dolores eos et fugit hic illo, impedit in magnam mollitia nulla placeat porro, possimus quae quaerat quasi quidem recusandae reprehenderit saepe, suscipit voluptatibus.</p>
-                                    <p><strong>After Effects:</strong> The whole lot. In my course After Effects Complete Course packed with all Techniques and Methods (No Tricks and gimmicks).</p>
-                                    <p><strong>Video Editing:</strong> If it's Adobe Premiere Pro or DaVinci Resolve you have excellent top rated courses.</p>
-                                    <p>I guess 208,000+ Students is a good sign that my courses will be of benefit to you.</p>
-                                    <p>Cheers</p>
-                                    <p>Alex</p>
-                                </div>
-                            </div><!-- end lecture-overview-stats-item -->
-                        </div><!-- end lecture-overview-stats-wrap -->
-                    </div><!-- end lecture-overview-item -->
+
                 </div><!-- end lecture-overview-wrap -->
             </div><!-- end tab-pane -->
+
+
             <div class="tab-pane fade" id="question-and-ans" role="tabpanel" aria-labelledby="question-and-ans-tab">
                 <div class="lecture-overview-wrap lecture-quest-wrap">
                     <div class="new-question-wrap">
@@ -1119,9 +788,12 @@ START COURSE-DASHBOARD
             </div><!-- end col-lg-6 -->
             <div class="col-lg-6">
                 <div class="client-logo-wrap text-right">
-                    <a href="#" class="client-logo-item client--logo-item-2 pr-3"><img src="images/sponsor-img.png" alt="brand image"></a>
-                    <a href="#" class="client-logo-item client--logo-item-2 pr-3"><img src="images/sponsor-img2.png" alt="brand image"></a>
-                    <a href="#" class="client-logo-item client--logo-item-2 pr-3"><img src="images/sponsor-img3.png" alt="brand image"></a>
+                    <a href="#" class="client-logo-item client--logo-item-2 pr-3">
+                        <img src="{{ asset('frontend/images/sponsor-img.png') }}" alt="brand image"></a>
+                    <a href="#" class="client-logo-item client--logo-item-2 pr-3">
+                        <img src="{{ asset('frontend/images/sponsor-img2.png') }}" alt="brand image"></a>
+                    <a href="#" class="client-logo-item client--logo-item-2 pr-3">
+                        <img src="{{ asset('frontend/images/sponsor-img3.png') }}" alt="brand image"></a>
                 </div><!-- end client-logo-wrap -->
             </div><!-- end col-lg-6 -->
         </div><!-- end row -->
@@ -1133,7 +805,7 @@ START COURSE-DASHBOARD
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
                     <a href="index.html">
-                        <img src="images/logo.png" alt="footer logo" class="footer__logo">
+                        <img src="{{ asset('frontend/images/logo.png') }}" alt="footer logo" class="footer__logo">
                     </a>
                     <ul class="generic-list-item pt-4">
                         <li><a href="tel:+1631237884">+163 123 7884</a></li>
@@ -1231,314 +903,72 @@ START COURSE-DASHBOARD
     </div><!-- end course-dashboard-side-heading -->
     <div class="course-dashboard-side-content">
         <div class="accordion generic-accordion generic--accordion" id="accordionCourseExample">
+
+
+
+
+
+
+
+
+                @foreach ($section as $sect)
+                @php
+                    $lectures = App\Models\CourseLecture::where('section_id',$sect->id)->get();
+                @endphp
+
             <div class="card">
-                <div class="card-header" id="headingOne">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <div class="card-header" id="headingOne{{ $sect->id }}">
+                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                     data-target="#collapseOne{{ $sect->id }}" aria-expanded="true" aria-controls="collapseOne">
                         <i class="la la-angle-down"></i>
                         <i class="la la-angle-up"></i>
-                        <span class="fs-15"> Section 1: Dive in and Discover After Effects</span>
+                        <span class="fs-15">{{$sect->section_title}}</span>
                         <span class="course-duration">
-                            <span>1/5</span>
-                            <span>21min</span>
+                 
+                            <span>({{ count($lectures) }})</span>
                         </span>
                     </button>
                 </div><!-- end card-header -->
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionCourseExample">
+                <div id="collapseOne{{ $sect->id }}" class="collapse" 
+                    aria-labelledby="headingOne{{ $sect->id }}" data-parent="#accordionCourseExample">
                     <div class="card-body p-0">
                         <ul class="curriculum-sidebar-list">
-                            <li class="course-item-link active">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">1. Let's Have Fun - Seriously!</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox2" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox2"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">2. A simple concept to get ahead</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link active-resource">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox3" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox3"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">3. Download your Footage for your Quick Start</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-file"></i>2min</p>
-                                            <div class="generic-action-wrap">
-                                                <div class="dropdown">
-                                                    <a class="btn theme-btn theme-btn-sm theme-btn-transparent mt-1 fs-14 font-weight-medium" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="la la-folder-open mr-1"></i> Resources<i class="la la-angle-down ml-1"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="javascript:void(0)">
-                                                            Section-Footage.zip
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end generic-action-wrap -->
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox4" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox4"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">4. Jump in and Animate your Character</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                        </ul>
-                    </div><!-- end card-body -->
-                </div><!-- end collapse -->
-            </div><!-- end card -->
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="la la-angle-down"></i>
-                        <i class="la la-angle-up"></i>
-                        <span class="fs-15">Section 2: Jump Start Into Motion Graphics</span>
-                        <span class="course-duration">
-                            <span>1/5</span>
-                            <span>21min</span>
-                        </span>
-                    </button>
-                </div><!-- end card-header -->
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionCourseExample">
-                    <div class="card-body p-0">
-                        <ul class="curriculum-sidebar-list">
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox5" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox5"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">5. Let's Have Fun - Seriously!</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox6" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox6"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">6. A simple concept to get ahead</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link active-resource">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox7" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox7"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">7. Download your Footage for your Quick Start</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-file"></i>2min</p>
-                                            <div class="generic-action-wrap">
-                                                <div class="dropdown">
-                                                    <a class="btn theme-btn theme-btn-sm theme-btn-transparent mt-1 fs-14 font-weight-medium" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="la la-folder-open mr-1"></i> Resources<i class="la la-angle-down ml-1"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="javascript:void(0)">
-                                                            Section-Footage.zip
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end generic-action-wrap -->
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox8" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox8"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">8. Jump in and Animate your Character</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                        </ul>
-                    </div><!-- end card-body -->
-                </div><!-- end collapse -->
-            </div><!-- end card -->
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="la la-angle-down"></i>
-                        <i class="la la-angle-up"></i>
-                        <span class="fs-15">Section 3: Graphics from within After Effects</span>
-                        <span class="course-duration">
-                            <span>1/5</span>
-                            <span>21min</span>
-                        </span>
-                    </button>
-                </div><!-- end card-heder -->
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionCourseExample">
-                    <div class="card-body p-0">
-                        <ul class="curriculum-sidebar-list">
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox9" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox9"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">9. Let's Have Fun - Seriously!</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox10" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox10"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">10. A simple concept to get ahead</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link active-resource">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox11" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox11"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">11. Download your Footage for your Quick Start</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-file"></i>2min</p>
-                                            <div class="generic-action-wrap">
-                                                <div class="dropdown">
-                                                    <a class="btn theme-btn theme-btn-sm theme-btn-transparent mt-1 fs-14 font-weight-medium" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="la la-folder-open mr-1"></i> Resources<i class="la la-angle-down ml-1"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="javascript:void(0)">
-                                                            Section-Footage.zip
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end generic-action-wrap -->
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox12" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox12"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">12. Jump in and Animate your Character</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                        </ul>
-                    </div><!-- end card-body -->
-                </div><!-- end collapse -->
-            </div><!-- end card -->
-            <div class="card">
-                <div class="card-header" id="headingFour">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        <i class="la la-angle-down"></i>
-                        <i class="la la-angle-up"></i>
-                        <span class="fs-15">Section 4: Bonus Lecture</span>
-                        <span class="course-duration">
-                            <span>1/5</span>
-                            <span>21min</span>
-                        </span>
-                    </button>
-                </div><!-- end card-heder -->
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionCourseExample">
-                    <div class="card-body p-0">
-                        <ul class="curriculum-sidebar-list">
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox13" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox13"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">13. Bonus Courses - Learn more for less</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                            <li class="course-item-link">
-                                <div class="course-item-content-wrap">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="courseCheckbox14" required>
-                                        <label class="custom-control-label custom--control-label" for="courseCheckbox14"></label>
-                                    </div><!-- end custom-control -->
-                                    <div class="course-item-content">
-                                        <h4 class="fs-15">14. Conclusion</h4>
-                                        <div class="courser-item-meta-wrap">
-                                            <p class="course-item-meta"><i class="la la-play-circle"></i>2min</p>
-                                        </div>
-                                    </div><!-- end course-item-content -->
-                                </div><!-- end course-item-content-wrap -->
-                            </li>
-                        </ul>
-                                    </div><!-- end card-body -->
-                                </div><!-- end collapse -->
-                            </div><!-- end card -->
+
+            @foreach ($lectures  as $lect)
+        
+            <li class="course-item-link active">
+                <div class="course-item-content-wrap">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="courseCheckbox" required>
+                        <label class="custom-control-label custom--control-label" for="courseCheckbox"></label>
+                    </div><!-- end custom-control -->
+                    <div class="course-item-content">
+                        <h4 class="fs-15 lecture-title" data-video-url="{{ $lect->url }}" 
+                            data-content="{!! $lect->content !!}">
+                        {{ $lect->lecture_title }}</h4>
+                    </div><!-- end course-item-content -->
+                </div><!-- end course-item-content-wrap -->
+            </li>
+            @endforeach
+
+                </ul>
+            </div><!-- end card-body -->
+        </div><!-- end collapse -->
+    </div><!-- end card -->
+            
+            @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
                         </div><!-- end accordion-->
                     </div><!-- end course-dashboard-side-content -->
                 </div><!-- end course-dashboard-sidebar-wrap -->
@@ -1732,23 +1162,64 @@ START COURSE-DASHBOARD
     </div><!-- end modal-dialog -->
 </div><!-- end modal -->
 
-<!-- template js files -->
-<script src="{{ asset('frontend/js/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('frontend/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('frontend/js/isotope.js') }}"></script>
-<script src="{{ asset('frontend/js/waypoint.min.js') }}"></script>
-<script src="{{ asset('frontend/js/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('frontend/js/fancybox.js') }}"></script>
-<script src="{{ asset('frontend/js/plyr.js') }}"></script>
-<script src="{{ asset('frontend/js/datedropper.min.js') }}"></script>
-<script src="{{ asset('frontend/js/emojionearea.min.js') }}"></script>
-<script src="{{ asset('frontend/js/jquery-te-1.4.0.min.js') }}"></script>
-<script src="{{ asset('frontend/js/jquery.MultiFile.min.js') }}"></script>
-<script src="{{ asset('frontend/js/main.js') }}"></script>
-<script>
-    var player = new Plyr('#player');
+<script type="text/javascript">
+    // Function to open the first lecture when the page loads
+    function openFirstLecture() {
+        const firstLecture = document.querySelector('.lecture-title'); // Get the first lecture element
+        if (firstLecture) {
+            firstLecture.click(); // Trigger the click event on the first lecture
+        }
+    }
+
+    // Function to handle lecture clicks and load content
+    function viewLesson(videoUrl, vimeoUrl, textContent) {
+        const video = document.getElementById("videoContainer");
+        const text = document.getElementById("textLesson");
+        const textContainer = document.createElement("div");
+
+        if (videoUrl && videoUrl.trim() !== "") {
+            video.classList.remove("d-none");
+            text.classList.add("d-none");
+            text.innerHTML = "";
+            video.setAttribute("src", videoUrl);
+        } else if (vimeoUrl && vimeoUrl.trim() !== "") {
+            video.classList.remove("d-none");
+            text.classList.add("d-none");
+            text.innerHTML = "";
+            video.setAttribute("src", vimeoUrl);
+        } else if (textContent && textContent.trim() !== "") {
+            video.classList.add("d-none");
+            text.classList.remove("d-none");
+            text.innerHTML = "";
+            textContainer.innerText = textContent;
+            textContainer.style.fontSize = "14px";
+            textContainer.style.textAlign = "left";
+            textContainer.style.paddingLeft = "40px";
+            textContainer.style.paddingRight = "40px";
+            text.appendChild(textContainer);
+        }
+    }
+
+    // Add a click event listener to all lecture elements
+    document.querySelectorAll('.lecture-title').forEach((lectureTitle) => {
+        lectureTitle.addEventListener('click', () => {
+            const videoUrl = lectureTitle.getAttribute('data-video-url');
+            const vimeoUrl = lectureTitle.getAttribute('data-vimeo-url');
+            const textContent = lectureTitle.getAttribute('data-content');
+            viewLesson(videoUrl, vimeoUrl, textContent);
+        });
+    });
+
+    // Open the first lecture when the page loads
+    window.addEventListener('load', () => {
+        openFirstLecture();
+    });
 </script>
+
+
+
+@include('frontend.mycourse.body.footer')
+
 </body>
 </html>
+
