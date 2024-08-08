@@ -57,6 +57,14 @@ Route::controller(WishListController::class)->group(function(){
 });
 
 
+//User My Course All Route //
+Route::controller(OrderController::class)->group(function(){
+
+    Route::get('/my/course', 'MyCourse')->name('my.course');
+ 
+});
+
+
 }); //End Auth All middleware Route
 
 require __DIR__.'/auth.php';
@@ -204,8 +212,6 @@ Route::controller(OrderController::class)->group(function(){
     Route::get('/instructor/order/invoice/{payment_id}', 'InstructorOrderInvoice')
     ->name('instructor.order.invoice');
  
-   
-    
 }); 
 
 
