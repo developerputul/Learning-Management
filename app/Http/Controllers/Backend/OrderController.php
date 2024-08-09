@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Session;
 use App\Mail\Orderconfirm;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
 class OrderController extends Controller
 {
     public function AdminPendingOrder(){
