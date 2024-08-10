@@ -11,7 +11,6 @@ use Carbon\Carbon;
 class QuestionController extends Controller {
 
         public function UserQuestion(Request $request){
-
             $course_id = $request->course_id;
             $instructor_id = $request->instructor_id;
 
