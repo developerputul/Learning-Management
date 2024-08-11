@@ -57,22 +57,17 @@ Route::controller(WishListController::class)->group(function(){
    
 });
 
-
 //User My Course All Route //
 Route::controller(OrderController::class)->group(function(){
 
     Route::get('/my/course', 'MyCourse')->name('my.course');
     Route::get('/course/view/{course_id}', 'CourseView')->name('course.view');
- 
 });
-
 
 //User Question All Route //
 Route::controller(QuestionController::class)->group(function(){
 
     Route::post('/user/question', 'UserQuestion')->name('user.question');
-  
- 
 });
 
 
@@ -222,6 +217,14 @@ Route::controller(OrderController::class)->group(function(){
  
     Route::get('/instructor/order/invoice/{payment_id}', 'InstructorOrderInvoice')
     ->name('instructor.order.invoice');
+ 
+}); 
+
+//Question All Order Route //
+Route::controller(QuestionController::class)->group(function(){
+
+    Route::get('/instructor/all/question', 'InstructorAllQuestion')->name('instructor.all.question');
+    Route::get('/question/details/{id}', 'QuestionDetails')->name('question.details');
  
 }); 
 

@@ -434,28 +434,34 @@ START COURSE-DASHBOARD
                                                 <h3 class="fs-20 font-weight-semi-bold">My question relates to</h3>
 
 
-                                                <form action="{{ route('user.question') }}" method="POST" class="pt-4">
+                                                <form action="{{ route('user.question') }}" method="POST"
+                                                    class="pt-4">
                                                     @csrf
-                                                
-                                                    <input type="hidden" name="course_id" value="{{ $course->course_id }}">
-                                                    <input type="hidden" name="instructor_id" value="{{ $course->instructor_id }}">
-                                                
+
+                                                    <input type="hidden" name="course_id"
+                                                        value="{{ $course->course_id }}">
+                                                    <input type="hidden" name="instructor_id"
+                                                        value="{{ $course->instructor_id }}">
+
                                                     <div class="custom-control-wrap">
                                                         <div class="custom-control custom-radio mb-3 pl-0">
-                                                            <input type="text" name="subject" class="form-control form--control pl-3" placeholder="Subject">
+                                                            <input type="text" name="subject"
+                                                                class="form-control form--control pl-3"
+                                                                placeholder="Subject">
                                                         </div>
                                                         <div class="custom-control custom-radio mb-3 pl-0">
-                                                            <textarea class="form-control form--control pl-3" name="question" rows="4" placeholder="Write your question..."></textarea>
+                                                            <textarea class="form-control form--control pl-3" name="question" rows="4"
+                                                                placeholder="Write your question..."></textarea>
                                                         </div>
                                                     </div>
-                                                
+
                                                     <div class="btn-box text-center">
                                                         <button type="submit" class="btn theme-btn w-100">
                                                             Submit Question <i class="la la-arrow-right icon ml-1"></i>
                                                         </button>
                                                     </div>
                                                 </form>
-                                                
+
 
                                             </div>
                                         </div><!-- end new-question-wrap -->
@@ -788,12 +794,6 @@ START COURSE-DASHBOARD
                             <div class="accordion generic-accordion generic--accordion" id="accordionCourseExample">
 
 
-
-
-
-
-
-
                                 @foreach ($section as $sect)
                                     @php
                                         $lectures = App\Models\CourseLecture::where('section_id', $sect->id)->get();
@@ -845,9 +845,6 @@ START COURSE-DASHBOARD
                                         </div><!-- end collapse -->
                                     </div><!-- end card -->
                                 @endforeach
-
-
-
 
                             </div><!-- end accordion-->
                         </div><!-- end course-dashboard-side-content -->
