@@ -2,16 +2,22 @@
 @extends('instructor.instructor_dashboard')
 @section('instructor')
 
+
+@php
+    $id = Auth::user()->id;
+    $profileData = App\Models\User::find($id);
+@endphp
+
 <div class="page-content">
     <div class="chat-wrapper">
         <div class="chat-sidebar">
             <div class="chat-sidebar-header">
                 <div class="d-flex align-items-center">
                     <div class="chat-user-online">
-                        <img src="assets/images/avatars/avatar-1.png" width="45" height="45" class="rounded-circle" alt="" />
+                        <img src="{{ (!empty($profileData->photo)) ? url('upload/instructor_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" width="45" height="45" class="rounded-circle" alt="" />
                     </div>
                     <div class="flex-grow-1 ms-2">
-                        <p class="mb-0">Rachel Zane</p>
+                        <p class="mb-0">{{ $profileData->name }}</p>
                     </div>
                     <div class="dropdown">
                         <div class="cursor-pointer font-24 dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded'></i>
@@ -37,13 +43,13 @@
                                     <a href="javascript:;" class="list-group-item">
                                         <div class="d-flex">
                                             <div class="chat-user-online">
-                                                <img src="assets/images/avatars/avatar-2.png" width="42" height="42" class="rounded-circle" alt="" />
+                                                <img src="{{ (!empty($question->user->photo)) ? url('upload/user_images/'.$question->user->photo) : url('upload/no_image.jpg') }}" width="42" height="42" class="rounded-circle" alt="" />
                                             </div>
                                             <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Louis Litt</h6>
-                                                <p class="mb-0 chat-msg">You just got LITT up, Mike.</p>
+                                                <h6 class="mb-0 chat-title">{{ $question['user']['name'] }}</h6>
+                                                <p class="mb-0 chat-msg">Student</p>
                                             </div>
-                                            <div class="chat-time">9:51 AM</div>
+                                            <div class="chat-time">{{ Carbon\Carbon::parse($question->created_at)->diffForHumans() }}</div>
                                         </div>
                                     </a>
 
@@ -58,45 +64,65 @@
         <div class="chat-header d-flex align-items-center">
             <div class="chat-toggle-btn"><i class='bx bx-menu-alt-left'></i>
             </div>
-           
+           <h5>{{ $question['course']['course_name'] }}</h5>
             <div class="chat-top-header-menu ms-auto"> <a href="javascript:;"><i class='bx bx-video'></i></a>
                 <a href="javascript:;"><i class='bx bx-phone'></i></a>
                 <a href="javascript:;"><i class='bx bx-user-plus'></i></a>
             </div>
         </div>
 
-        <div class="chat-content">
-            <div class="chat-content-leftside">
-                <div class="d-flex">
-                    <img src="assets/images/avatars/avatar-3.png" width="48" height="48" class="rounded-circle" alt="" />
-                    <div class="flex-grow-1 ms-2">
-                        <p class="mb-0 chat-time">Harvey, 2:35 PM</p>
-                        <p class="chat-left-msg">Hi, harvey where are you now a days?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-content-rightside">
-                <div class="d-flex ms-auto">
-                    <div class="flex-grow-1 me-2">
-                        <p class="mb-0 chat-time text-end">you, 2:37 PM</p>
-                        <p class="chat-right-msg">I am in USA</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                 <div class="chat-content">
+                        <div class="chat-content-leftside">
+                            <div class="d-flex">
+                                <img src="{{ (!empty($question->user->photo)) ? url('upload/user_images/'.$question->user->photo) : url('upload/no_image.jpg') }}" width="48" height="48" class="rounded-circle" alt="" />
+                                <div class="flex-grow-1 ms-2">
+                                    <p class="mb-0 chat-time">{{ $question->subject }}, 
+                                        {{ Carbon\Carbon::parse($question->created_at)->diffForHumans() }}</p>
+                                    <p class="chat-left-msg">{{ $question->question }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        @foreach ($replay as $repl)
+
+                        <div class="chat-content-rightside">
+                            <div class="d-flex ms-auto">
+                                <div class="flex-grow-1 me-2">
+                                    <p class="mb-0 chat-time text-end">{{ Carbon\Carbon::parse($repl->created_at)
+                                    ->diffForHumans() }}</p>
+                                    <p class="chat-right-msg">{{ $repl->question }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                  </div>
+
+        <form action="{{ route('instructor.replay') }}" method="post">
+            @csrf
+
+            <input type="hidden" name="qid" value="{{ $question->id }}">
+            <input type="hidden" name="course_id" value="{{ $question->course->id }}">
+
+            <input type="hidden" name="user_id" value="{{ $question->user->id }}">
+            <input type="hidden" name="instructor_id" value="{{ $profileData->id }}">
+
 
         <div class="chat-footer d-flex align-items-center">
             <div class="flex-grow-1 pe-2">
                 <div class="input-group">	<span class="input-group-text"><i class='bx bx-smile'></i></span>
-                    <input type="text" class="form-control" placeholder="Type a message">
+                    <input type="text" name="question" class="form-control" placeholder="Type a message">
                 </div>
             </div>
-            <div class="chat-footer-menu"> <a href="javascript:;"><i class='bx bx-file'></i></a>
+            <div class="chat-footer-menu"> 
+
+                <button type="submit"><i class="lni lni-reply"></i>Send</button>
+
                 <a href="javascript:;"><i class='bx bxs-contact'></i></a>
                 <a href="javascript:;"><i class='bx bx-microphone'></i></a>
                 <a href="javascript:;"><i class='bx bx-dots-horizontal-rounded'></i></a>
             </div>
         </div>
+    </form>
         <!--start chat overlay-->
         <div class="overlay chat-toggle-btn-mobile"></div>
         <!--end chat overlay-->
