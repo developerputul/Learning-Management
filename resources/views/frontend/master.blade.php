@@ -30,6 +30,7 @@
     <!-- end inject -->
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+  
 </head>
 <body>
 
@@ -47,14 +48,14 @@
         START HEADER AREA
     ======================================-->
 @include('frontend.body.header')
-<!-- end header-menu-area -->
+
 <!--======================================
         END HEADER AREA
 ======================================-->
 @yield('home')
 
 <!-- ================================
-         END FOOTER AREA
+          StartFOOTER AREA
 ================================= -->
 @include('frontend.body.footer')
 <!-- end footer-area -->

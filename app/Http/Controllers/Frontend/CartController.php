@@ -18,6 +18,8 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Mail\Orderconfirm;
+use Stripe;
+use Charge;
 
 class CartController extends Controller
 {
@@ -227,6 +229,20 @@ class CartController extends Controller
          }else {
              $total_amount = round(Cart::total());
          }
+
+         $data = array(); 
+            $data['name'] = $request->name;
+            $data['email'] = $request->email;
+            $data['phone'] = $request->phone;
+            $data['address'] = $request->address;
+            $data['course_title'] = $request->course_title;
+            $cartTotal = Cart::total();
+            $carts = Cart::content();
+
+         if ($request->cash_delivery == 'stripe') {
+           return view('frontend.payment.stripe',compact('data','cartTotal','carts'));
+         }elseif($request->cash_delivery == 'handcash'){
+
  
          // Cerate a new Payment Record 
  
@@ -288,19 +304,78 @@ class CartController extends Controller
 
          Mail::to($request->email)->send(new Orderconfirm($data)); 
 
-         //End Send to Student Email
 
-         if ($request->cash_delivery == 'stripe') {
-            echo "stripe";
-         }else{
+        //End Send to Student Email
+         $notification = array(
+            'message' => 'Cash Payment Submit Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('index')->with($notification); 
 
-             $notification = array(
-                 'message' => 'Cash Payment Submit Successfully',
-                 'alert-type' => 'success'
-             );
-             return redirect()->route('index')->with($notification); 
+        } //end elseif
+       
+    } // End Method
 
-         } 
+    public function StripeOrder(Request $request){
+        
+        if (Session::has('coupon')) {
+            $total_amount = Session::get('coupon')['total_amount'];
+         }else {
+             $total_amount = round(Cart::total());
+         }
+
+         \Stripe\Stripe::setApiKey('sk_test_51IUTWzALc6pn5BvMjaRW9STAvY4pLiq1dNViHoh5KtqJc9Bx7d4WKlCcEdHOJdg3gCcC2F19cDxUmCBJekGSZXte00RN2Fc4vm');
+
+    $token = $_POST['stripeToken'];
+
+    $charge = \Stripe\Charge::create([
+
+            'amount' => $total_amount*100, 
+            'currency' => 'usd',
+            'description' => 'Lms',
+            'source' => $token,
+            'metadata' => ['order_id' => '3434'],
+         ]);
+
+         $order_id = Payment::insertGetId([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'total_amount' => $total_amount,
+            'payment_type' => 'Stripe',
+            'invoice_no' => 'EOS' . mt_rand(10000000, 99999999),
+            'order_date' => Carbon::now()->format('d F Y'),
+            'order_month' => Carbon::now()->format('F'),
+            'order_year' => Carbon::now()->format('Y'),
+            'status' => 'pending',
+            'created_at' => Carbon::now(), 
+
+         ]);
+
+         $carts = Cart::content();
+         foreach ($carts as $cart) {
+            Order::insert([
+                'payment_id' => $order_id,
+                'user_id' => Auth::user()->id,
+                'course_id' => $cart->id,
+                'instructor_id' => $cart->options->instructor,
+                'course_title' => $cart->options->name,
+                'price' => $cart->price,
+            ]);
+         }// end foreach 
+
+         if (Session::has('coupon')) {
+            Session::forget('coupon');
+         }
+         Cart::destroy();
+
+         $notification = array(
+            'message' => 'Stripe Payment Submit Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('index')->with($notification); 
+
 
     } // End Method
 
