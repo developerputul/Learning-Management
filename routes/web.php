@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\QuestionController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
@@ -153,6 +154,15 @@ Route::controller(OrderController::class)->group(function(){
     Route::get('/pending-confirm/{id}', 'PendingToConfirm')->name('pending-confirm');
     Route::get('/admin/confirm/order', 'AdminConfirmOrder')->name('admin.confirm.order');
    
+    
+}); 
+
+
+//Admin Order All Route //
+Route::controller(ReportController::class)->group(function(){
+
+    Route::get('/report/view', 'ReportView')->name('report.view');
+    Route::post('/search/by/date', 'SearchByDate')->name('search.by.date');
     
 }); 
 
