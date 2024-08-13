@@ -33,7 +33,6 @@
                         <label for="input1" class="form-label">Search By Date</label>
                         <input type="date" name="date" class="form-control" id="input1">
                     </div>
-
                     <div class="col-md-12">
                         <div class="d-md-flex d-grid align-items-center gap-3">
                             <button type="submit" class="btn btn-primary px-4">Save Changes</button>
@@ -43,7 +42,7 @@
             </div>
 
             <div class="col-md-4">
-                <form id="myForm" action="{{ route('admin.store.coupon') }}" method="post" class="row g-3" enctype="multipart/form-data">
+                <form id="myForm" action="{{ route('search.by.month') }}" method="post" class="row g-3" enctype="multipart/form-data">
                     @csrf
         
                     <div class="form-group col-md-12">
@@ -89,7 +88,7 @@
             </div>
 
             <div class="col-md-4">
-                <form id="myForm" action="{{ route('admin.store.coupon') }}" method="post" class="row g-3" enctype="multipart/form-data">
+                <form id="myForm" action="{{ route('search.by.year') }}" method="post" class="row g-3" enctype="multipart/form-data">
                     @csrf
         
                     <div class="form-group col-md-12">
