@@ -259,8 +259,9 @@ Route::controller(CouponController::class)->group(function(){
 
 
 
-}); ////// End Instructor Group Middleware/////////
-    ////// End Instructor Group Middleware/////////
+}); 
+////// End Instructor Group Middleware/////////
+////// End Instructor Group Middleware/////////
 
 
 //Route Accessable  for All
@@ -297,6 +298,8 @@ Route::controller(CartController::class)->group(function(){
 
 // Coupon All Route
 Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
+Route::post('/instcoupon-apply', [CartController::class, 'InstCouponApply']);
+
 Route::get('/counpon-calculation', [CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 
