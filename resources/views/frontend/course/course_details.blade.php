@@ -402,7 +402,6 @@
                 <div class="review-stars">
 
                     @if ($item->rating == NUll)
-
                     <span class="la la-star-o"></span>
                     <span class="la la-star-o"></span>
                     <span class="la la-star-o"></span>
@@ -445,6 +444,7 @@
                     <span class="la la-star"></span>
                     
                     @endif
+
                 </div>
             </div>
             <span class="d-block lh-18 pb-2">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
