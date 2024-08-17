@@ -159,7 +159,6 @@ Route::controller(OrderController::class)->group(function(){
     
 }); 
 
-
 //Admin Order All Route //
 Route::controller(ReportController::class)->group(function(){
 
@@ -170,14 +169,12 @@ Route::controller(ReportController::class)->group(function(){
     
 }); 
 
-
 //Admin Review  All Route //
 Route::controller(ReviewController::class)->group(function(){
 
     Route::get('/admin/pending/review', 'AdminPendingReview')->name('admin.pending.review');
     Route::post('/update/review/status', 'UpdateReviewStatus')->name('update.review.status');
     Route::get('/admin/active/review', 'AdminActiveReview')->name('admin.active.review');
-  
 }); 
 
 
@@ -267,6 +264,14 @@ Route::controller(CouponController::class)->group(function(){
     Route::get('/instructor/delete/coupon/{id}', 'InstructorDeleteCoupon')->name('instructor.delete.coupon');
     
 }); 
+
+//Instructor Review  All Route //
+Route::controller(ReviewController::class)->group(function(){
+
+    Route::get('/instructor/all/review', 'InstructorAllReview')->name('instructor.all.review');
+    
+}); 
+
 
 
 
