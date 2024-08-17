@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\ActiveController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CourseController;
@@ -175,6 +176,15 @@ Route::controller(ReviewController::class)->group(function(){
     Route::get('/admin/pending/review', 'AdminPendingReview')->name('admin.pending.review');
     Route::post('/update/review/status', 'UpdateReviewStatus')->name('update.review.status');
     Route::get('/admin/active/review', 'AdminActiveReview')->name('admin.active.review');
+}); 
+
+
+//Admin All User And Instructor All Route //
+Route::controller(ActiveController::class)->group(function(){
+
+    Route::get('/all/user', 'AllUser')->name('all.user');
+    Route::get('/all/instructor', 'AllInstructor')->name('all.instructor');
+    
 }); 
 
 
