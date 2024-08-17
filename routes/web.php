@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ActiveController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CourseController;
@@ -185,6 +186,20 @@ Route::controller(ActiveController::class)->group(function(){
     Route::get('/all/user', 'AllUser')->name('all.user');
     Route::get('/all/instructor', 'AllInstructor')->name('all.instructor');
     
+}); 
+
+
+//Admin All Blog Route //
+Route::controller(BlogController::class)->group(function(){
+
+    Route::get('/blog/category', 'AllBlogCategory')->name('blog.category');
+    Route::post('/blog/category/store', 'BlogCategoryStore')->name('blog.category.store');
+
+    Route::get('/edit/blog/category/{id}', 'EditBlogCategory');
+    Route::post('/blog/category/update', 'BlogCategoryUpdate')->name('blog.category.update');
+
+    Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
+
 }); 
 
 
