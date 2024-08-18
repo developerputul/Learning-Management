@@ -109,4 +109,80 @@ class BlogController extends Controller
         return redirect()->route('blog.post')->with($notification);
    } // End Method
 
+   public function EditPost($id){
+
+    $blogcat = BlogCategory::latest()->get();
+    $post = BlogPost::find($id);
+    return view('admin.backend.post.edit_post',compact('post','blogcat'));
+
+   } // End Method
+
+   public function UpdateBlogPost(Request $request){
+
+    $post_id = $request->id;
+        
+    if ($request->file('post_image')) {
+
+        $image = $request->file('post_image');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('upload/post_image'), $name_gen);
+        $save_url = 'upload/post_image/'.$name_gen;
+
+        BlogPost::find($post_id)->update([
+
+            'blogcat_id' => $request->blogcat_id,
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ', '-',$request->post_title)),
+            'long_desc' => $request->long_desc,
+            'post_tags' => $request->post_tags,
+            'post_image' => $save_url,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Blog Post Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('blog.post')->with($notification);
+    }else {
+
+        BlogPost::find($post_id)->update([
+
+            'blogcat_id' => $request->blogcat_id,
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ', '-',$request->post_title)),
+            'long_desc' => $request->long_desc,
+            'post_tags' => $request->post_tags,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Blog Post Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('blog.post')->with($notification);
+    }// End Else
+
+   }// End Method
+
+   public function DeleteBlogPost($id){
+
+    $item = BlogPost::find($id);
+        $img = $item->post_image;
+        unlink($img);
+
+         BlogPost::find($id)->delete();
+
+         $notification = array(
+            'message' => 'Blog Post Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+
+   } // End Method
+
 }
