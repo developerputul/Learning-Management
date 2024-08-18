@@ -10,6 +10,8 @@
 
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
+
+	<link href="{{ asset('backend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
 	<!--plugins-->
 	<link href="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
 	<link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
@@ -72,8 +74,13 @@
     <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 	<script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js')}}"></script>
 	<script src="{{ asset('backend/assets/js/index.js')}}"></script>
+     <!--Tags input-->
+	<script src="{{ asset('backend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
+	<!--End Tags input-->
+
 	<!--app JS-->
 	<script src="{{ asset('backend/assets/js/app.js')}}"></script>
+    <!--End app JS-->
 
 	<script src="{{ asset('backend/assets/js/validate.min.js')}}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -116,6 +123,7 @@
  }
  @endif 
 </script>
+
 
 </body>
 

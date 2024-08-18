@@ -185,22 +185,26 @@ Route::controller(ActiveController::class)->group(function(){
 
     Route::get('/all/user', 'AllUser')->name('all.user');
     Route::get('/all/instructor', 'AllInstructor')->name('all.instructor');
-    
 }); 
 
 
-//Admin All Blog Route //
+//Blog Category All Route //
 Route::controller(BlogController::class)->group(function(){
 
     Route::get('/blog/category', 'AllBlogCategory')->name('blog.category');
     Route::post('/blog/category/store', 'BlogCategoryStore')->name('blog.category.store');
-
     Route::get('/edit/blog/category/{id}', 'EditBlogCategory');
     Route::post('/blog/category/update', 'BlogCategoryUpdate')->name('blog.category.update');
-
     Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
-
 }); 
+
+//Blog Post All Route //
+Route::controller(BlogController::class)->group(function(){
+
+    Route::get('/blog/post', 'BlogPost')->name('blog.post');
+    Route::get('/add/blog/post', 'AddBlogPost')->name('add.blog.post');
+    Route::post('/store/blog/post', 'StoreBlogPost')->name('store.blog.post');
+});
 
 
 }); 
