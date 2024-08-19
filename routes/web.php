@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Models\BlogCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -354,12 +355,13 @@ Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 //Checkout Page Route
 Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 Route::post('/payment', [CartController::class, 'Payment'])->name('payment');
+
 Route::post('/stripe_order', [CartController::class, 'StripeOrder'])->name('stripe_order');
-
-
-
-
 Route::post('/store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
+
+Route::get('/blog/details{slug}', [BlogController::class, 'BlogDetails']);
+Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
+Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog');
 
 //End Route Accessable  for All
 
