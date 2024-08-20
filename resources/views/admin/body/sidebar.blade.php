@@ -87,6 +87,10 @@
                 <li>
                     <a href="{{ route('smtp.setting') }}"><i class='bx bx-radio-circle'></i>Manage SMTP</a>
                 </li>
+
+                <li>
+                    <a href="{{ route('site.setting') }}"><i class='bx bx-radio-circle'></i> Site Setting</a>
+                </li>
             </ul>
         </li>
    

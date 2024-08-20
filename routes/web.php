@@ -145,10 +145,18 @@ Route::controller(CouponController::class)->group(function(){
 }); 
 
 
-//Admin Coupon All Route //
+//Admin Smtp  All Route //
 Route::controller(SettingController::class)->group(function(){
     Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
     Route::post('/update/smtp', 'UpdateSmtp')->name('update.smtp');
+    
+}); 
+
+// Admin Site Setting All Route //
+Route::controller(SettingController::class)->group(function(){
+    Route::get('/site/setting', 'SiteSetting')->name('site.setting');
+    Route::post('/update/site', 'UpdateSite')->name('update.site');
+    
     
 }); 
 
