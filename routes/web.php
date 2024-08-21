@@ -237,6 +237,23 @@ Route::controller(RoleController::class)->group(function(){
 });
 
 
+//Roles All Route //
+Route::controller(RoleController::class)->group(function(){
+
+    Route::get('/all/roles', 'AllRoles')->name('all.roles');
+    Route::get('/add/roles', 'AddRoles')->name('add.roles');
+    Route::post('/store/roles', 'StoreRoles')->name('store.roles');
+    Route::get('/edit/roles/{id}', 'editRoles')->name('edit.roles');
+    Route::post('/update/roles', 'UpdateRole')->name('update.roles');
+    Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles');
+
+
+
+    Route::get('/add/roles/permission', 'AddRolePermission')->name('add.roles.permission');
+ 
+});
+
+
 }); 
 
 ////////////End Admin Group Middleware//////////////
