@@ -9,13 +9,13 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">All Roles</li>
+                    <li class="breadcrumb-item active" aria-current="page">All Roles In Permission</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-               <a href="{{ route('add.roles') }}" class="btn btn-primary">Add Roles</a>
+               <a href="{{ route('add.roles.permission') }}" class="btn btn-primary">Add Roles Permission</a>
             </div>
         </div>
     </div>
@@ -30,6 +30,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Role Name</th>
+                            <th>Permission</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -39,10 +40,15 @@
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>
+                                @foreach ($item->permissions as $perm)
+                                    <span class="badge bg-danger">{{ $perm->name }}</span>
+                                @endforeach
+                            </td>
                           
                             <td>
-                                <a href="{{ route('edit.roles', $item->id) }}" class="btn btn-info px-5">Edit</a>
-                                <a href="{{ route('delete.roles', $item->id) }}" class="btn btn-danger px-5" id="delete">Delete</a>
+                                <a href="{{ route('admin.edit.roles', $item->id) }}" class="btn btn-info px-5">Edit</a>
+                                <a href="{{ route('admin.delete.roles', $item->id) }}" class="btn btn-danger px-5" id="delete">Delete</a>
                             </td>
                         </tr>
                         @endforeach
