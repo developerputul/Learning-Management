@@ -97,7 +97,7 @@ Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpd
 
 //Category All Route //
 Route::controller(CategoryController::class)->group(function(){
-    Route::get('/all/category', 'AllCategory')->name('all.category');
+    Route::get('/all/category', 'AllCategory')->name('all.category')->middleware('permission:category.all');
     Route::get('/add/category', 'AddCategory')->name('add.category');
     Route::post('/store/category', 'StoreCategory')->name('store.category');
 
@@ -109,7 +109,7 @@ Route::controller(CategoryController::class)->group(function(){
 //SubCategory All Route //
 Route::controller(CategoryController::class)->group(function(){
 
-    Route::get('/all/subcategory', 'AllSubCategory')->name('all.subcategory');
+    Route::get('/all/subcategory', 'AllSubCategory')->name('all.subcategory')->middleware('permission:subcategory.all');
     Route::get('/add/subcategory', 'AddSubcategory')->name('add.subcategory');
     Route::post('/store/subcategory', 'StoreSubcategory')->name('store.subcategory');
     Route::get('/edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
