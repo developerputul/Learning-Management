@@ -10,6 +10,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Hash;
 
+
 class AdminController extends Controller
 {
     public function AdminDashboard(){
