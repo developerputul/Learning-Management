@@ -17,6 +17,9 @@
                     <p class="lh-18">{{ $instructor->email }}</p>
                 </div>
             </div><!-- end media -->
+
+           
+
             <ul class="social-icons social-icons-styled social--icons-styled">
                 <li><a href="#"><i class="la la-facebook"></i></a></li>
                 <li><a href="#"><i class="la la-twitter"></i></a></li>
@@ -199,6 +202,15 @@
     <div class="bg-gray py-5">
         <div class="container">
             <ul class="nav nav-tabs generic-tab justify-content-center" id="myTab" role="tablist">
+
+                <li class="nav-item">
+                 <!-- Vue start-->
+                <div id="app">
+                    <send-message> </send-message>
+                </div>
+            <!-- Vue end -->
+            </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" id="about-me-tab" data-toggle="tab" href="#about-me" role="tab" aria-controls="about-me" aria-selected="false">
                         About Me
