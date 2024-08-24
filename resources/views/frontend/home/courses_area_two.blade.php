@@ -83,6 +83,8 @@ $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
                         <a href="{{ url('course/details/'.$course->id.'/'.$course->course_name_slug) }}">{{ $course->course_name }}</a>
                     </h5>
                     <p class="card-text"><a href="{{ route('instructor.details',$course->instructor_id) }}">{{ $course['user']['name'] }}</a></p>
+
+
                     <div class="rating-wrap d-flex align-items-center py-2">
                         <div class="review-stars">
                             <span class="rating-number">{{ round($avarage,1) }}</span>
@@ -132,6 +134,8 @@ $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
                         </div>
                         <span class="rating-total pl-1">({{ count($reviewcount) }})</span>
                     </div><!-- end rating-wrap -->
+
+                    
                     <div class="d-flex justify-content-between align-items-center">
 
                         @if ($course->discount_price ==  NULL)

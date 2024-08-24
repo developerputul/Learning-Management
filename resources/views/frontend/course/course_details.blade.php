@@ -395,7 +395,6 @@
         @endphp
 
     @foreach ($reviews as $item)
-
     <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
         <div class="media-img mr-4 rounded-full">
             <img class="rounded-full lazy" src="{{ (!empty($item->user->photo)) ? url('upload/user_images/'.$item->user->photo) : url('upload/no_image.jpg') }}" data-src="images/small-avatar-1.jpg" alt="User image">
