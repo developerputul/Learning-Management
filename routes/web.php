@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ActiveController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ChatController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\OrderController;
@@ -424,9 +425,12 @@ Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
 
 Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog');
 
-
-
 Route::post('/mark-notification-as-read/{notification}', [CartController::class, 'MarkAsRead']);
+
+
+//Chat Post Request All Route
+Route::post('/send-message', [ChatController::class, 'SendMessage']);
+
 
 //End Route Accessable  for All
 
