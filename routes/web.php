@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 
+    Route::get('/live/chat', [UserController::class, 'LiveChat'])->name('live.chat');
+
 
 //User Wishlist All Route //
 Route::controller(WishListController::class)->group(function(){
@@ -430,6 +432,8 @@ Route::post('/mark-notification-as-read/{notification}', [CartController::class,
 
 //Chat Post Request All Route
 Route::post('/send-message', [ChatController::class, 'SendMessage']);
+Route::get('/user-all', [ChatController::class, 'GetAllUser']);
+Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
 
 
 //End Route Accessable  for All

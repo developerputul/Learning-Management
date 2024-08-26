@@ -10,4 +10,17 @@ class ChatMessage extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function sender(){
+        return $this->belongsTo(User::class, 'sender_id', 'id');
+    }
+
+    public function receiver(){
+        return $this->belongsTo(User::class, 'reciver_id', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'sender_id', 'id');
+    }
 }
+
