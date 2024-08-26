@@ -435,6 +435,8 @@ Route::post('/send-message', [ChatController::class, 'SendMessage']);
 Route::get('/user-all', [ChatController::class, 'GetAllUser']);
 Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
 
+Route::get('/instructor/live/chat', [ChatController::class, 'LiveChat'])->name('instructor.live.chat');
+
 
 //End Route Accessable  for All
 

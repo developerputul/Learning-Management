@@ -215,9 +215,9 @@
                 <send-message :recevierid="{{ $instructor->id }}" receivername="{{ $instructor->name }}"></send-message>
             </div>
             </li>
-            @else
+        @else
             <button class="btn theme-btn d-none d-lg-inline-block">Login First</button>
-            @endauth
+        @endauth
             <!-- Vue end -->
                 <li class="nav-item">
                     <a class="nav-link active" id="about-me-tab" data-toggle="tab" href="#about-me" role="tab" aria-controls="about-me" aria-selected="false">

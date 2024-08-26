@@ -19,12 +19,12 @@ class ChatController extends Controller
 
         ChatMessage::create([
             'sender_id' => Auth::user()->id,
-            'reciver_id' => $request->receiver_id,
+            'reciver_id' => $request->reciver_id,
             'msg' => $request->msg,
             'created_at' => Carbon::now(),
         ]);
-
         return response()->json(['message' => 'Message Send Successfully']);
+        
     } // End Method
 
     public function GetAllUser(){
@@ -65,6 +65,10 @@ class ChatController extends Controller
             abort(404);
         }
 
+    }// End Method
+
+    public function LiveChat(){
+        return view('instructor.chat.live_chat');
     }// End Method
 }
 

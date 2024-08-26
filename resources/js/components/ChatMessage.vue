@@ -44,19 +44,10 @@
                   <div class="header clearfix">
                     <strong class="primary-font">{{ msg.user.name }}</strong>
                     <small class="right text-muted">
-                      {{ img.created_at }}
+                      {{formatDate(msg.created_at) }}
 
                     </small>
-                    <!-- //if send with product id  -->
-                    <!-- <div class="text-center">
-                      {{ msg.user.name }}
-                    <img :src="'/upload/instructor_images/'+msg.user.photo"
-                        alt="productImg"
-                        width="60px;"
-                      />
-                    </div> -->
                   </div>
-  
                   <p>{{ msg.msg }}</p>
                 </div>
               </li>
@@ -72,16 +63,8 @@
                    </span>
                 <div class="chat-body clearfix">
                   <div class="header clearfix">
-                    <small class="left text-muted">{{ msg.created_at }}</small>
+                    <small class="left text-muted">{{formatDate(msg.created_at) }}</small>
                       <strong class="right primary-font">{{ msg.user.name }} </strong>  
-                    <!-- <strong class="right primary-font">Myusername </strong> //my name   -->
-                     <!-- <div class="text-center">
-                        Product name
-                     <img src="/frontend/avatar-5.png"
-                        alt="prouductImage"
-                        width="60px;"
-                      />
-                    </div> -->
                   </div>
                   <p>{{ msg.msg }}</p>
                 </div>
@@ -128,6 +111,10 @@ import axios from 'axios';
     created(){
       this.getAllUser();
 
+      setInterval(() => {
+        this.userMessage(this.selectedUser);
+      },1000);
+
     },
     methods: {
         getAllUser(){
@@ -160,6 +147,11 @@ import axios from 'axios';
                 this.errors = err.response.data.errors;
               })
             },
+
+            formatDate(dateString){
+                const options = { year: 'numeric', month: 'short', day: 'numeric',hour:'2-digit', minute: '2-digit'};
+                return new Date(dateString).toLocaleDateString('en-US',options);
+          },
     },
      
   };

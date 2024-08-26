@@ -34,14 +34,14 @@
 </template>
 
 <script>
-    export default{
+    export default {
           props : ['recevierid','receivername'],
 
           data(){
               return{
-                form:{
+                form: {
                   msg:"",
-                  receiver_id : this.recevierid,
+                  reciver_id : this.recevierid,
                 },
                 errors: {},
                 succMessage: {},
@@ -55,7 +55,7 @@
                 this.form.msg = "";
                 this.succMessage = res.data;
                 console.log(res.data);
-              }).catch((err) =>{
+              }).catch((err) => {
                 this.errors = err.response.data.errors;
               })
             }
